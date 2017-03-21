@@ -1,0 +1,9 @@
+a, span {
+  text-decoration: none;
+  margin: 5px;
+  padding: 5px;
+}
+
+a {
+  background: lightgray;
+}
