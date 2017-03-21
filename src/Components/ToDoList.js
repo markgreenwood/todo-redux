@@ -1,18 +1,20 @@
 import React, { PropTypes } from 'react';
 import Todo from './ToDoItem';
+import { List, ListItem } from 'material-ui/List';
 import './ToDoList.css';
 
 const TodoList = ({ todos, onTodoClick }) => {
   return (
-    <ul className="todolist">
+    <List className="todolist">
       { todos.map( todo => 
-        <Todo 
-          key={todo.id} 
-          {...todo}
+        <ListItem
+          key={todo.id}
+          primaryText={<Todo {...todo} />}
           onClick={() => onTodoClick(todo.id)}
+          leftIcon={<input type="checkbox" checked={todo.completed} />}
         />
       )}
-    </ul>
+    </List>
   );
 };
 
@@ -27,3 +29,7 @@ TodoList.propTypes = {
 };
 
 export default TodoList;
+
+          // style={{ 
+          //   textDecoration: todo.completed ? 'line-through' : 'none'
+          // }}
