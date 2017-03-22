@@ -7,20 +7,20 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 let AddTodo = ({ dispatch }) => { // eslint-disable-line
-  let textfield;
+  let _input;
 
   return (
     <div>
       <form onSubmit={ e => {
         e.preventDefault();
-        if (!textfield.input.value.trim()) {
+        if (!_input.value.trim()) {
           return;
         }
-        dispatch(addTodo(textfield.input.value));
-        textfield.input.value = '';
+        dispatch(addTodo(_input.value));
+        _input.value = '';
       }}>
         <TextField id="newtodo" ref={ (node) => {
-          textfield = node;
+          _input = node.input;
         }} />
         <RaisedButton type="submit">
           Add Todo
