@@ -22,7 +22,7 @@ module.exports = {
     rules: [{
       test: /\.js$/,
       loader: 'eslint-loader',
-      exclude: 'node_modules',
+      exclude: /node_modules/,
       enforce: 'pre',
     }, {
       test: /\.js$/,

@@ -11,17 +11,21 @@ let AddTodo = ({ dispatch }) => { // eslint-disable-line
 
   return (
     <div>
-      <form onSubmit={ e => {
-        e.preventDefault();
-        if (!_input.value.trim()) {
-          return;
-        }
-        dispatch(addTodo(_input.value));
-        _input.value = '';
-      }}>
-        <TextField id="newtodo" ref={ (node) => {
-          _input = node.input;
-        }} />
+      <form 
+        onSubmit={ e => {
+          e.preventDefault();
+          if (!_input.value.trim()) {
+            return;
+          }
+          dispatch(addTodo(_input.value));
+          _input.value = '';
+        }}>
+        <TextField 
+          id="newtodo" 
+          hintText="Enter a to-do"
+          ref={(node) => {
+            _input = node.input;
+          }} />
         <RaisedButton type="submit">
           Add Todo
         </RaisedButton>
